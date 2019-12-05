@@ -11,8 +11,7 @@ using namespace std;
 std::mt19937 mersenne(static_cast<unsigned int>(time(nullptr)));
 
 // Create a reusable random number generator
-uniform_int_distribution<> generator(1, 52);
-
+uniform_int_distribution<> generator(0, 51);
 
 void initDeck(vector<Card> &deck) {
     for (int rank = 0; rank < 13; ++rank) {
@@ -113,14 +112,12 @@ int main() {
     // Create Blackjack
     Blackjack blackjack;
 
-    vector<Card> deck = blackjack.getDeck();
-
     // Initialize deck
+    vector<Card> deck = blackjack.getDeck();
     initDeck(deck);
 
     // Print deck
     printDeck(deck);
-    cout << deck[0].getValue();
 
     // Shuffle deck
     shuffleDeck(deck);
