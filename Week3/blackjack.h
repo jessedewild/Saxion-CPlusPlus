@@ -63,7 +63,16 @@ public:
             if (choice == 's')
                 break;
 
-            playerTotal += deck.getCard(card++).getValue();
+            int picked = deck.getCard(card++).getValue();
+            if (picked == 11) {
+                if (playerTotal + picked > 21) {
+                    playerTotal += 1;
+                } else {
+                    playerTotal += picked;
+                }
+            } else {
+                playerTotal += picked;
+            }
         }
 
         // If player hasn't busted, dealer goes until he has at least 17 points
