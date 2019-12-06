@@ -108,66 +108,32 @@ void shuffleDeck(vector<Card> &deck) {
     }
 }
 
-bool playBlackjack(const vector<Card> &deck) {
-    // Set up the initial game state
-    const Card &card = &deck[0];
-
-    int playerTotal = 0;
-    int dealerTotal = 0;
-
-    // Deal the dealer one card
-    dealerTotal += getCardValue(*cardPtr++);
-    std::cout << "The dealer is showing: " << dealerTotal << '\n';
-
-    // Deal the player two cards
-    playerTotal += getCardValue(*cardPtr++);
-    playerTotal += getCardValue(*cardPtr++);
-
-    // Player goes first
-    while (true) // infinite loop (until we break or return)
-    {
-        std::cout << "You have: " << playerTotal << '\n';
-
-        // See if the player has busted
-        if (playerTotal > 21)
-            return false;
-
-        char choice = getPlayerChoice();
-        if (choice == 's')
-            break;
-
-        playerTotal += get(*cardPtr++);
-    }
-
-    // If player hasn't busted, dealer goes until he has at least 17 points
-    while (dealerTotal < 17) {
-        dealerTotal += getCardValue(*cardPtr++);
-        std::cout << "The dealer now has: " << dealerTotal << '\n';
-    }
-
-    // If dealer busted, player wins
-    if (dealerTotal > 21)
-        return true;
-
-    return (playerTotal > dealerTotal);
-}
-
 int main() {
     // Create Blackjack
     Blackjack blackjack;
 
     // Initialize deck
-    vector<Card> deck = blackjack.getDeck();
-    initDeck(deck);
+    vector<Card> &deckOfCards = blackjack.getDeck().getCards();
+    initDeck(deckOfCards);
 
     // Print deck
-    printDeck(deck);
+    printDeck(deckOfCards);
 
     // Shuffle deck
-    shuffleDeck(deck);
+    shuffleDeck(deckOfCards);
 
     // Print deck
-    printDeck(deck);
+    printDeck(deckOfCards);
+
+    // Play Blackjack
+    bool game = blackjack.play();
+
+    // Game results
+    if (game) {
+        cout << "Player wins!" << endl;
+    } else {
+        cout << "Dealer wins!" << endl;
+    }
 
     return 1;
 }

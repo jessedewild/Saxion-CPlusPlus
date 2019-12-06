@@ -1,6 +1,8 @@
 #ifndef SAXION_CPLUSPLUS_CARDS_H
 #define SAXION_CPLUSPLUS_CARDS_H
 
+using namespace std;
+
 /**
  * Card ranks (2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace).
  */
@@ -81,6 +83,7 @@ public:
             case ACE:
                 return 11;
         }
+        return 0;
     }
 };
 
