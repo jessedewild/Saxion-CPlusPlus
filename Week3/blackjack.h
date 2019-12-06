@@ -33,6 +33,17 @@ public:
     }
 
     /**
+     * Draw a card from the deck.
+     *
+     * @return Card
+     */
+    Card drawCard() {
+        Card card = deck.back();
+        deck.popBack();
+        return card;
+    }
+
+    /**
      * Play Blackjack.
      *
      * @return int 0 = player, 1 = dealer, 2 = tie
@@ -45,12 +56,12 @@ public:
         int dealerTotal = 0;
 
         // The dealer gets one card to start
-        dealerTotal += deck.getCard(card++).getValue();
+        dealerTotal += drawCard().getValue();
         cout << "The dealer is showing: " << dealerTotal << '\n';
 
         // The player gets two cards to start
-        playerTotal += deck.getCard(card++).getValue();
-        playerTotal += deck.getCard(card++).getValue();
+        playerTotal += drawCard().getValue();
+        playerTotal += drawCard().getValue();
 
         // The player goes first.
         while (true) {
@@ -65,7 +76,7 @@ public:
             if (choice == 's')
                 break;
 
-            int picked = deck.getCard(card++).getValue();
+            int picked = drawCard().getValue();
             if (picked == 11) {
                 if (playerTotal + picked > 21) {
                     playerTotal += 1;
@@ -79,7 +90,7 @@ public:
 
         // The dealer repeatedly draws until they reach a score of 17 or more, at which point they stand
         while (dealerTotal < 17) {
-            dealerTotal += deck.getCard(card++).getValue();
+            dealerTotal += drawCard().getValue();
             cout << "The dealer now has: " << dealerTotal << '\n';
         }
 

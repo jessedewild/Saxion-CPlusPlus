@@ -9,14 +9,20 @@ using namespace std;
 class Deck {
 private:
     vector<Card> deck;
+    int card = 0;
 
 public:
     vector<Card> &getCards() {
         return deck;
     }
 
-    Card &getCard(const int pos) {
-        return deck[pos];
+    Card back() {
+        return deck[card];
+    }
+
+    void popBack() {
+        card++;
     }
 };
+
 #endif //SAXION_CPLUSPLUS_DECK_H
