@@ -126,13 +126,15 @@ int main() {
     printDeck(deckOfCards);
 
     // Play Blackjack
-    bool game = blackjack.play();
+    int game = blackjack.play();
 
     // Game results
-    if (game) {
+    if (game == 0) {
         cout << "Player wins!" << endl;
-    } else {
+    } else if (game == 1) {
         cout << "Dealer wins!" << endl;
+    } else if (game == 2) {
+        cout << "It's a tie!" << endl;
     }
 
     return 1;
