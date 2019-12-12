@@ -9,7 +9,6 @@ using namespace std;
  * Blackjack class
  */
 class Blackjack {
-private:
     Deck deck;
 
 public:
@@ -51,7 +50,6 @@ public:
     int play() {
         cout << "Blackjack is starting!" << endl;
 
-        int card = 0;
         int playerTotal = 0;
         int dealerTotal = 0;
 
@@ -103,7 +101,7 @@ public:
         // Otherwise, it's a tie
         if (playerTotal > dealerTotal) {
             return 0;
-        } else if (dealerTotal < playerTotal) {
+        } else if (dealerTotal > playerTotal) {
             return 1;
         } else {
             return 2;
