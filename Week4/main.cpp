@@ -4,10 +4,7 @@
 #include "ValueInt/ValueInt.h"
 #include "KeyValue/KeyValue.h"
 
-[[noreturn]] void Error(std::string const &message) {
-    std::cerr << message << std::endl;
-    exit(-1);
-}
+
 
 std::string IntToString(int value) {
     std::ostringstream output;

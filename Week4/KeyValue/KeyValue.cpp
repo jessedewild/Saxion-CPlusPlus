@@ -1,4 +1,10 @@
+#include <iostream>
 #include "KeyValue.h"
+
+[[noreturn]] void Error(std::string const &message) {
+    std::cerr << message << std::endl;
+    exit(-1);
+}
 
 void KeyValue::Create(ValueInt *value) {
     m_values.emplace_back(*value);
@@ -10,6 +16,7 @@ ValueInt const &KeyValue::Get(std::string const &name) const {
             return value;
         }
     }
+    Error("Key not found!");
 }
 
 ValueInt &KeyValue::Get(std::string const &name) {
@@ -18,6 +25,7 @@ ValueInt &KeyValue::Get(std::string const &name) {
             return value;
         }
     }
+    Error("Key not found!");
 }
 
 void KeyValue::Delete(std::string const &name) {

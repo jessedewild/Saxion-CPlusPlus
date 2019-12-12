@@ -11,7 +11,7 @@ void ValueInt::Update(int value) {
 }
 
 void ValueInt::Get(std::ostream &out) const {
-    out << m_name << "=" << m_value << " (int)" << std::endl;
+    out << m_name << "=" << m_value << " (int)";
 }
 
 std::string const &ValueInt::GetName() const {
