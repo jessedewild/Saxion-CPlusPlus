@@ -96,7 +96,7 @@ public:
 void printCard(const Card &card);
 
 /**
- * It takes two Cards and swaps their values.
+ * It takes two Cards and swaps their m_values.
  *
  * @param cardOne &Card
  * @param cardTwo &Card

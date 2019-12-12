@@ -10,7 +10,7 @@ void printArray(int *values, int values_count) {
 }
 
 int searchArray(int const *values, int values_count, int value) {
-    // Loop through total values
+    // Loop through total m_values
     for (int pos = 0; pos < values_count; ++pos) {
         if (values[pos] >= value) {
             // If value is equals or larger, return position
@@ -27,18 +27,18 @@ int insertArray(int *values, int values_count, int value) {
 
     // If the position is found
     if (pos != -1) {
-        // Loop through values starting from the end
+        // Loop through m_values starting from the end
         for (int i = (values_count + 1); i > pos; i--) {
             values[i] = values[i - 1];
         }
         // Place value that needs to be inserted
         values[pos] = value;
 
-        // Return total values + 1 because the list is larger
+        // Return total m_values + 1 because the list is larger
         return values_count + 1;
     }
 
-    // Return current total values when number is not inserted
+    // Return current total m_values when number is not inserted
     return values_count;
 }
 

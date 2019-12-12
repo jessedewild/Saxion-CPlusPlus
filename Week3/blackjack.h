@@ -110,7 +110,7 @@ public:
 };
 
 /**
- * It takes the deck as a const reference parameter and prints the values in the deck.
+ * It takes the deck as a const reference parameter and prints the m_values in the deck.
  *
  * @param deck &vector<Card>
  */
