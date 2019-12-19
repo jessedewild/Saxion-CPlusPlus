@@ -12,5 +12,5 @@ void ValueString::Update(std::string value) {
 }
 
 void ValueString::Get(std::ostream &out) const {
-    out << m_name << "=" << m_value << " (str)";
+    out << m_name << "=" << m_value << " (string)";
 }
