@@ -9,3 +9,5 @@ add_executable(Week2-ArraysAndPointers Week2/ArraysAndPointers/src/main.cpp)
 add_executable(Week2-SortingAlgorithm Week2/SortingAlgorithm/src/main.cpp)
 add_executable(Week3-Blackjack Week3/main.cpp)
 add_executable(Week4-Redis Week4/main.cpp Week4/ValueInt/ValueInt.cpp Week4/KeyValue/KeyValue.cpp)
+add_executable(Week5 Week5/main.cpp Week5/ValueInt/ValueInt.cpp Week5/KeyValue/KeyValue.cpp
+        Week5/ValueBase/ValueBase.cpp Week5/ValueString/ValueString.cpp)
