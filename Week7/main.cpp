@@ -1,23 +1,61 @@
 #include <iostream>
 #include <memory>
+#include <fstream>
 #include "Administration.h"
 #include "ServiceDeskEmployee.h"
 
+std::vector<std::shared_ptr<Employee>> readEmployeesFromFile() {
+    std::vector<std::shared_ptr<Employee>> employees;
+
+    std::ifstream input("assets/input.txt");
+    while (true) {
+        std::string username;
+        std::string password;
+        std::string department;
+
+        input >> username;
+
+        if (input.eof())
+            break;
+        if (input.fail())
+            throw std::runtime_error("Fuck");
+
+        input >> password;
+
+        if (input.fail())
+            throw std::runtime_error("Fuck");
+
+        input >> department;
+
+        if (input.fail())
+            throw std::runtime_error("Fuck");
+
+        employees.push_back(std::make_shared<Employee>(username, password, department));
+    }
+
+    return employees;
+}
+
 int main() {
-    //TODO: Create an instance of the helpdesk admin class
+    // Instance of the helpdesk admin class
     Administration admin;
 
-    //TODO: Read the (normal) employees from the employees.txt file
+    // Reading the (normal) employees from the employees.txt file
     // Columns in the text file are: username password departement
+    std::vector<std::shared_ptr<Employee>> employees = readEmployeesFromFile();
+    for (std::shared_ptr<Employee> employee : employees) {
+        admin.addEmployee(employee);
+    }
 
-    //TODO: Add the following helpdesk employees (They are all working on the helpdeskdepartment)
-    //username: gerralt, password: catsarecool, expertise: Mice
+    // Added the following helpdesk employees (They are all working on the helpdesk department)
+    // username: gerralt, password: catsarecool, expertise: Mice
     std::shared_ptr<ServiceDeskEmployee> gerralt =
             std::make_shared<ServiceDeskEmployee>("gerralt", "catsarecool", "Mice");
 
     admin.addEmployee(gerralt);
 
-    //TODO: Print all employees
+    // Print all employees
+    admin.printEmployees();
 
     //TODO: Add the following tickets. Start with id 1
     //A software ticket with date: 15-01-2018, creator: ruud, "Excel can't calculate the number of days in a year", software: "Office 365"

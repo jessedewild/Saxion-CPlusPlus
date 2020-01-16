@@ -12,6 +12,9 @@ private:
 public:
     Employee(const std::string &username, const std::string &password, const std::string &department);
 
+    const std::string &getUsername() const;
+
+    const std::string &getDepartment() const;
 };
 
 

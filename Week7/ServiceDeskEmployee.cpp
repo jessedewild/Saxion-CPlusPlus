@@ -2,4 +2,4 @@
 
 ServiceDeskEmployee::ServiceDeskEmployee(const std::string &username, const std::string &password,
                                          const std::string &expertise)
-        : Employee(username, password, "helpdesk"), expertise(expertise) {}
+        : Employee(username, password, "Helpdesk"), expertise(expertise) {}

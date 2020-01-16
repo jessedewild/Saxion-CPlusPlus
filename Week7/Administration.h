@@ -13,7 +13,11 @@ private:
     std::vector<Ticket> tickets;
 
 public:
+    const std::vector<std::shared_ptr<Employee>> &getEmployees() const;
+
     void addEmployee(const std::shared_ptr<Employee> &employee);
+
+    void printEmployees();
 };
 
 
