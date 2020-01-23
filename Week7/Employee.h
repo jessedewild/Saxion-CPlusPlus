@@ -15,6 +15,8 @@ public:
     const std::string &getUsername() const;
 
     const std::string &getDepartment() const;
+
+    virtual std::string toString() const;
 };
 
 

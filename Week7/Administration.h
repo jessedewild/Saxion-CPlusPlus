@@ -15,9 +15,21 @@ private:
 public:
     const std::vector<std::shared_ptr<Employee>> &getEmployees() const;
 
+    std::shared_ptr<Employee> getEmployeeByName(const std::string& name);
+
     void addEmployee(const std::shared_ptr<Employee> &employee);
 
     void printEmployees();
+
+    const std::vector<Ticket> &getTickets() const;
+
+    Ticket getTicketById(int id);
+
+    void addTicket(const Ticket &ticket);
+
+    void printTickets();
+
+    void solveTicket(int id, const std::string &fixedBy, const std::string &fix);
 };
 
 

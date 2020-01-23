@@ -11,6 +11,10 @@ private:
 public:
     HardwareTicket(const std::string &date, const std::shared_ptr<Employee> &creator, const std::string &department,
                    int code);
+
+    int getCode() const;
+
+    std::string toString() const override;
 };
 
 

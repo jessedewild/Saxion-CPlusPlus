@@ -12,6 +12,10 @@ private:
 public:
     SoftwareTicket(const std::string &date, const std::shared_ptr<Employee> &creator, const std::string &department,
                    const std::string &software);
+
+    const std::string &getSoftware() const;
+
+    std::string toString() const override;
 };
 
 

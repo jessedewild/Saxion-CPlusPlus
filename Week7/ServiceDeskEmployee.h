@@ -10,6 +10,10 @@ class ServiceDeskEmployee : public Employee {
 
 public:
     ServiceDeskEmployee(const std::string &username, const std::string &password, const std::string &expertise);
+
+    const std::string &getExpertise() const;
+
+    std::string toString() const override;
 };
 
 

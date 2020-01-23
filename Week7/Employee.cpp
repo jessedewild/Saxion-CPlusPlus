@@ -10,3 +10,7 @@ const std::string &Employee::getUsername() const {
 const std::string &Employee::getDepartment() const {
     return department;
 }
+
+std::string Employee::toString() const {
+    return getUsername() + " (" + getDepartment() + ")";
+}
